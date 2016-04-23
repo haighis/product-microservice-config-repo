@@ -45,7 +45,7 @@ spring:
     config:
       server:
         git:
-          uri: https://github.com/kbastani/spring-boot-microservice-config
+          uri: https://github.com/haighis/product-microservice-config-repo
         health:
           repositories:
             movie:
