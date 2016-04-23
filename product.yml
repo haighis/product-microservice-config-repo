@@ -13,6 +13,6 @@ eureka:
   instance:
     hostname: product-ps.cfapps.io
     nonSecurePort: 80
-ribbon:
-  eureka:
-    enabled: true
+#ribbon:
+#  eureka:
+#    enabled: true
