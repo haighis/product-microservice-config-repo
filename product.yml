@@ -1,0 +1,18 @@
+spring:
+  profiles:
+    active: cloud
+---
+spring:
+  profiles: cloud
+  jpa:
+    show_sql: false
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://discovery-ps.cfapps.io/eureka/
+  instance:
+    hostname: product-ps.cfapps.io
+    nonSecurePort: 80
+ribbon:
+  eureka:
+    enabled: true
