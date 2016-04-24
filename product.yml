@@ -16,3 +16,28 @@ eureka:
 #ribbon:
 #  eureka:
 #    enabled: true
+---
+spring:
+  profiles: development
+  jpa:
+    show_sql: false
+configuration:
+  newValue: some value
+endpoints:
+  restart:
+    enabled: true
+logging:
+  levels:
+    org.springframework.boot.env.PropertySourcesLoader: TRACE
+    org.springframework.web: DEBUG
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:8761/eureka/
+  instance:
+    preferIpAddress: true
+    #hostname: product-ps.cfapps.io
+    #nonSecurePort: 80
+#ribbon:
+#  eureka:
+#    enabled: true
