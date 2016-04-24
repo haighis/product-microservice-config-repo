@@ -13,7 +13,7 @@ eureka:
       defaultZone: ${vcap.services.discovery.credentials.uri:http://127.0.0.1:8761}/eureka/
   instance:
     hostname: product-ps.cfapps.io
-    nonSecurePort: 80
+    nonSecurePort: ${PORT:80}
 #ribbon:
 #  eureka:
 #    enabled: true
