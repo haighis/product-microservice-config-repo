@@ -35,7 +35,8 @@ eureka:
     registerWithEureka: true
     fetchRegistry: true
     serviceUrl:
-      defaultZone: http://discovery-ps.cfapps.io/eureka/
+      #defaultZone: http://discovery-ps.cfapps.io/eureka/
+      defaultZone: ${vcap.services.discovery.credentials.uri:http://127.0.0.1:8761}/eureka/
 
 ---
 
@@ -66,4 +67,5 @@ eureka:
     registerWithEureka: true
     fetchRegistry: true
     serviceUrl:
-      defaultZone: http://discovery:8761/eureka/
+      #defaultZone: http://discovery:8761/eureka/
+      defaultZone: ${vcap.services.discovery.credentials.uri:http://127.0.0.1:8761}/eureka/
