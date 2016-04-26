@@ -1,0 +1,54 @@
+spring:
+  profiles:
+    active: cloud
+---
+
+spring:
+  profiles: cloud
+  cloud:
+    config:
+      discovery:
+        enabled: true
+server:
+  port: ${PORT:8761}
+endpoints:
+  restart:
+    enabled: true
+  shutdown:
+    enabled: true
+  health:
+    sensitive: false
+eureka:
+  instance:
+    hostname: discovery
+  client:
+    registerWithEureka: false
+    fetchRegistry: false
+    serviceUrl:
+      #defaultZone: http://discovery-ps.cfapps.io/eureka/
+      defaultZone: ${vcap.services.eureka.credentials.uri:http://127.0.0.1:8761}/eureka/
+#${eureka.instance.hostname}:${server.port}
+      #defaultZone: http://${eureka.instance.hostname}:${server.port}/eureka/
+
+---
+
+spring:
+  profiles: development
+server:
+  port: ${PORT:8761}
+endpoints:
+  restart:
+    enabled: true
+  shutdown:
+    enabled: true
+  health:
+    sensitive: false
+eureka:
+  instance:
+    hostname: discovery
+  client:
+    registerWithEureka: false
+    fetchRegistry: false
+    serviceUrl:
+      #defaultZone: http://discovery:8761/eureka/
+      defaultZone: ${vcap.services.eureka.credentials.uri:http://127.0.0.1:8761}/eureka/
